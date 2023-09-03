@@ -130,13 +130,13 @@ export class CalendarView extends ItemView {
                         info.jsEvent.getModifierState("Control") ||
                         info.jsEvent.getModifierState("Meta")
                     ) {
+                        launchEditModal(this.plugin, info.event.id);
+                    } else {
                         await openFileForEvent(
                             this.plugin.cache,
                             this.app,
                             info.event.id
                         );
-                    } else {
-                        launchEditModal(this.plugin, info.event.id);
                     }
                 } catch (e) {
                     if (e instanceof Error) {
