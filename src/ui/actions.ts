@@ -28,9 +28,9 @@ export async function openFileForEvent(
     if (!leaf) {
         return;
     }
-    if (leaf.getViewState().pinned) {
-        leaf = workspace.getLeaf("tab");
-    }
+    // if (leaf.getViewState().pinned) {
+    leaf = workspace.getLeaf("tab");
+    // }
     await leaf.openFile(file);
     if (lineNumber && leaf.view instanceof MarkdownView) {
         leaf.view.editor.setCursor({ line: lineNumber, ch: 0 });
